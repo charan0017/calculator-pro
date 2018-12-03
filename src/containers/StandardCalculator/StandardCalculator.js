@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './StandardCalculator.css';
 import { Calculator } from '../../components/';
-import { standard } from '../../config';
+import { standardConfig } from '../../config';
 
 class StandardCalculator extends Component {
     state = {
@@ -10,7 +10,7 @@ class StandardCalculator extends Component {
     };
 
     componentDidMount() {
-        const buttons = standard.buttons
+        const buttons = standardConfig.buttons
             .map(buttonsRow => buttonsRow
                 .map(button => ({ props: { ...button } })));
         this.setState({ buttons });

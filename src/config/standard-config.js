@@ -1,4 +1,4 @@
-const standard = {
+const standardConfig = {
     buttons: [
         [ {text: '%'}, {text: 'CE'}, {text: 'C'}, {text: '⌫'}, {text: '÷'} ],
         [ {text: '√'}, {text: '7'}, {text: '8'}, {text: '9'}, {text: 'x'}],
@@ -8,4 +8,4 @@ const standard = {
     ]
 };
 
-export default standard;
+export default standardConfig;

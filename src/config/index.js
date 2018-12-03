@@ -1,3 +1,3 @@
-import standard from './standard';
+import standardConfig from './standard-config';
 
-export { standard };
+export { standardConfig };
