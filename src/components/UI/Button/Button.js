@@ -5,7 +5,7 @@ import './Button.css';
 const Button = (props) => {
     const buttonClasses = `${(props.classes ? props.classes : '') + ' '}
         ${(props.btnColor ? props.btnColor : '') + ' '}
-        btn btn-light button__full font-weight-bold`;
+        btn btn-light button__full`;
     const btnStyle = typeof props.btnStyle === 'object' ? props.btnStyle : {};
     return (
         <div>

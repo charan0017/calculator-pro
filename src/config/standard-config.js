@@ -1,10 +1,40 @@
 const standardConfig = {
     buttons: [
-        [ {text: '%'}, {text: 'CE'}, {text: 'C'}, {text: '⌫'}, {text: '÷'} ],
-        [ {text: '√'}, {text: '7'}, {text: '8'}, {text: '9'}, {text: 'x'}],
-        [ {text: 'X', supR: '2'}, {text: '4'}, {text: '5'}, {text: '6'}, {text: '-'} ],
-        [ {text: 'X', supR: '3'}, {text: '1'}, {text: '2'}, {text: '3'}, {text: '+'}],
-        [ {text: '1/X'}, {text: '±'}, {text: '0'}, {text: '.'}, {text: '='} ],
+        [
+            {text: '%', classes: 'font-italic'},
+            {text: 'CE'},
+            {text: 'C'},
+            {text: '⌫'},
+            {text: '÷'}
+        ],
+        [
+            {text: '√'},
+            {text: '7', classes: 'font-weight-bold'},
+            {text: '8', classes: 'font-weight-bold'},
+            {text: '9', classes: 'font-weight-bold'},
+            {text: 'x'}
+        ],
+        [
+            {text: 'X', supR: '2', classes: 'font-italic'},
+            {text: '4', classes: 'font-weight-bold'},
+            {text: '5', classes: 'font-weight-bold'},
+            {text: '6', classes: 'font-weight-bold'},
+            {text: '-'}
+        ],
+        [
+            {text: 'X', supR: '3', classes: 'font-italic'},
+            {text: '1', classes: 'font-weight-bold'},
+            {text: '2', classes: 'font-weight-bold'},
+            {text: '3', classes: 'font-weight-bold'},
+            {text: '+'}
+        ],
+        [
+            {text: '1/X', classes: 'font-italic'},
+            {text: '±'},
+            {text: '0', classes: 'font-weight-bold'},
+            {text: '.', classes: 'font-weight-bold'},
+            {text: '='}
+        ],
     ]
 };
 
