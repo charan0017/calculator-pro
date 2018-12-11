@@ -1,3 +1,3 @@
-import StandardCalculator from './StandardCalculator/StandardCalculator';
+import BaseCalculator from './BaseCalculator/BaseCalculator';
 
-export { StandardCalculator };
+export { BaseCalculator };

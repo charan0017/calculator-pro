@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
-import { StandardCalculator } from './containers';
+import { BaseCalculator } from './containers';
+import { standardConfig } from './config/index';
 
 class App extends Component {
   render() {
     return (
-      <StandardCalculator />
+      <BaseCalculator config={standardConfig} />
     );
   }
 }
