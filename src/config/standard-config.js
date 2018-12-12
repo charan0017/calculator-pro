@@ -8,34 +8,34 @@ const standardConfig = {
         [
             {text: '%', classes: 'font-italic'},
             {text: 'CE'},
-            {text: 'C'},
+            {text: 'C', type: actionTypes.CLEAR_ALL},
             {text: '⌫'},
-            {text: '÷'}
+            {text: '÷', type: actionTypes.DIVIDE}
         ],
         [
             {text: '√'},
             {text: '7', type: actionTypes.VALUE, classes: 'font-weight-bold'},
             {text: '8', type: actionTypes.VALUE, classes: 'font-weight-bold'},
             {text: '9', type: actionTypes.VALUE, classes: 'font-weight-bold'},
-            {text: 'x'}
+            {text: 'x', type: actionTypes.MULTIPLY}
         ],
         [
             {text: 'X', supR: '2', classes: 'font-italic'},
             {text: '4', type: actionTypes.VALUE, classes: 'font-weight-bold'},
             {text: '5', type: actionTypes.VALUE, classes: 'font-weight-bold'},
             {text: '6', type: actionTypes.VALUE, classes: 'font-weight-bold'},
-            {text: '-'}
+            {text: '-', type: actionTypes.SUBTRACT}
         ],
         [
             {text: 'X', supR: '3', classes: 'font-italic'},
             {text: '1', type: actionTypes.VALUE, classes: 'font-weight-bold'},
             {text: '2', type: actionTypes.VALUE, classes: 'font-weight-bold'},
             {text: '3', type: actionTypes.VALUE, classes: 'font-weight-bold'},
-            {text: '+', type: actionTypes.ADDITION}
+            {text: '+', type: actionTypes.ADD}
         ],
         [
             {text: '1/X', classes: 'font-italic'},
-            {text: '±'},
+            {text: '±', type: actionTypes.PLUS_MINUS},
             {text: '0', type: actionTypes.VALUE, classes: 'font-weight-bold'},
             {text: '.', type: actionTypes.VALUE, classes: 'font-weight-bold'},
             {text: '='}

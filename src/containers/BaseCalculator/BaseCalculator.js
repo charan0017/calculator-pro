@@ -12,6 +12,7 @@ class BaseCalculator extends React.Component {
         result: {
             prev: 0,
             total: 0,
+            operationToPerform: null,
         }
     };
 

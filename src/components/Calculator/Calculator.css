@@ -4,3 +4,7 @@
     display: grid;
     grid-template-rows: 22% 78%;
 }
+
+.prev__display {
+    font-size: 3.5vh;
+}
