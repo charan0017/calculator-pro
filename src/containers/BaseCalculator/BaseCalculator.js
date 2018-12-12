@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Calculator } from '../../components/';
+import * as actionTypes from '../../store/actions/action-types';
 
 class BaseCalculator extends React.Component {
     state = {
@@ -13,6 +14,7 @@ class BaseCalculator extends React.Component {
             prev: 0,
             total: 0,
             operationToPerform: null,
+            calculationBlocked: false,
         }
     };
 
@@ -23,6 +25,7 @@ class BaseCalculator extends React.Component {
                     .map((buttonProps) => ({
                         props: {
                             ...buttonProps,
+                            disabled: false,
                             clicked: () => this.buttonClickHandler(buttonProps, this.props.config.calculate)
                         }
                     })));
@@ -30,11 +33,33 @@ class BaseCalculator extends React.Component {
         }
     }
 
+    scrollCalculatorDisplayFor = (elementIds = []) => {
+        elementIds.forEach((elementId) => {
+            const element = document.getElementById(elementId);
+            if (element) {
+                const { scrollWidth, clientWidth } = element;
+                element.scrollLeft = scrollWidth - clientWidth;
+            }
+        });
+    };
+
     buttonClickHandler = (buttonProps, calculate) => {
-        this.setState((prevState) => ({
-            ...prevState,
-            ...calculate(buttonProps, prevState.display, prevState.result),
-        }));
+        this.scrollCalculatorDisplayFor(['previous__display']);
+        this.setState((prevState) => {
+            const calculation = calculate(buttonProps, prevState.display, prevState.result);
+            let buttons = prevState.buttons.map(buttonRow => buttonRow
+                .map((button) => {
+                    if (![actionTypes.VALUE, actionTypes.CLEAR_ALL, actionTypes.CLEAR_ONCE, actionTypes.BACKSPACE].includes(button.props.type)) {
+                        button.props.disabled = !!calculation.result.calculationBlocked;
+                    }
+                    return button;
+                }));
+            return {
+                ...prevState,
+                ...buttons,
+                ...calculation,
+            };
+        });
     };
 
     render() {

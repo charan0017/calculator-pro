@@ -1,27 +1,15 @@
 import * as actionTypes from './action-types';
 
-const calculateAdd = (buttonProps, display, result) => {
-    result.prev += result.total;
-    result.total = 0;
-    display.currentDisplay = `${result.prev}`;
-};
+import * as operations from './operations';
 
-const calculateSubtract = (buttonProps, display, result) => {
-    if (result.prev) {
-        result.prev -= result.total;
-    } else {
-        result.prev = result.total;
-    }
-    result.total = 0;
-    display.currentDisplay = `${result.prev}`;
-};
-
-const performOperation = (buttonProps, display, result) => {
-    if (result.total) {
+const performArithmeticOperation = (buttonProps, display, result) => {
+    if (result.total || result.operationToPerform === actionTypes.DIVIDE) {
         display.prevDisplay += `${result.total} ${buttonProps.text} `;
         switch (result.operationToPerform || buttonProps.type) {
-            case actionTypes.ADD: calculateAdd(buttonProps, display, result); break;
-            case actionTypes.SUBTRACT: calculateSubtract(buttonProps, display, result); break;
+            case actionTypes.ADD: operations.calculateAdd(buttonProps, display, result); break;
+            case actionTypes.SUBTRACT: operations.calculateSubtract(buttonProps, display, result); break;
+            case actionTypes.MULTIPLY: operations.calculateMultiply(buttonProps, display, result); break;
+            case actionTypes.DIVIDE: operations.calculateDivide(buttonProps, display, result); break;
             default: break;
         }
     } else {
@@ -31,38 +19,14 @@ const performOperation = (buttonProps, display, result) => {
     return { display, result };
 };
 
-const updatePlusMinus = (buttonProps, display, result) => {
-    if (!result.total) {
-        result.total = result.prev;
-    }
-    result.total *= -1;
-    display.currentDisplay = `${result.total}`;
-    return { display, result };
-};
-
-const updateDisplayValues = (buttonProps, display, result) => {
-    const number = Number(buttonProps.text);
-    result.total = result.total * 10 + (result.total < 0 ? -number : number);
-    display.currentDisplay = `${result.total}`;
-    return { display, result };
-};
-
-const clearAll = (buttonProps, display, result) => {
-    display.prevDisplay = '';
-    display.currentDisplay = '0';
-    result.prev = 0;
-    result.total = 0;
-    result.operationToPerform = null;
-    return { display, result };
-};
-
 export const calculate = (buttonProps, display, result) => {
     switch (buttonProps.type) {
-        case actionTypes.ADD:
-        case actionTypes.SUBTRACT: return performOperation(buttonProps, display, result);
-        case actionTypes.PLUS_MINUS: return updatePlusMinus(buttonProps, display, result);
-        case actionTypes.VALUE: return updateDisplayValues(buttonProps, display, result);
-        case actionTypes.CLEAR_ALL: return clearAll(buttonProps, display, result);
-        default: return { display, result };
+        case actionTypes.PLUS_MINUS: return operations.updatePlusMinus(buttonProps, display, result);
+        case actionTypes.VALUE: return operations.updateDisplayValues(buttonProps, display, result);
+        case actionTypes.BACKSPACE: return operations.backspace(buttonProps, display, result);
+        case actionTypes.CLEAR_ONCE: return operations.clearOnce(buttonProps, display, result);
+        case actionTypes.CLEAR_ALL: return operations.clearAll(buttonProps, display, result);
+        case actionTypes.EQUALS: return operations.equals(buttonProps, display, result);
+        default: return performArithmeticOperation(buttonProps, display, result);
     }
 };

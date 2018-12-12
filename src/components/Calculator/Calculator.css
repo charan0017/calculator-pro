@@ -5,6 +5,22 @@
     grid-template-rows: 22% 78%;
 }
 
+.calculator__display {
+    display: grid;
+    grid-template-rows: 45% 55%;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
 .prev__display {
     font-size: 3.5vh;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.current__display {
+    font-size: 5.8vh;
 }

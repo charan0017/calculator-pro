@@ -16,6 +16,7 @@ const ButtonsRow = (props) => {
             classes={button.classes}
             btnColor={button.btnColor}
             btnStyle={button.btnStyle}
+            disabled={button.disabled}
             key={i} />);
     }
     const buttonsRowStyle = typeof props.style === 'object' ? props.style : {};
