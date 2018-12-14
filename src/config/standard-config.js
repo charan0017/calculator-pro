@@ -37,7 +37,7 @@ const standardConfig = {
             {text: '1/X', classes: 'font-italic'},
             {text: '±', type: actionTypes.PLUS_MINUS},
             {text: '0', type: actionTypes.VALUE, classes: 'font-weight-bold'},
-            {text: '.', type: actionTypes.DOT, classes: 'font-weight-bold'},
+            {text: '.', type: actionTypes.DECIMAL, classes: 'font-weight-bold'},
             {text: '=', type: actionTypes.EQUALS}
         ],
     ],

@@ -5,7 +5,7 @@ export const DIVIDE = 'DIVIDE';
 export const PLUS_MINUS = 'PLUS_MINUS';
 
 export const VALUE = 'VALUE';
-export const DOT = 'DOT';
+export const DECIMAL = 'DECIMAL';
 
 export const BACKSPACE = 'BACKSPACE';
 export const CLEAR_ONCE = 'CLEAR_ONCE';
