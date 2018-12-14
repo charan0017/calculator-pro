@@ -4,6 +4,10 @@ import calculateMultiply from './calculate-multiply';
 import calculateDivide from './calculate-divide';
 import updatePlusMinus from './update-plus-minus';
 
+import sqrt from './sqrt';
+import square from './square';
+import cube from './cube';
+
 import updateDisplayValues from './update-display-values';
 
 import clearOnce from './clear-once';
@@ -17,8 +21,12 @@ export {
     calculateSubtract,
     calculateMultiply,
     calculateDivide,
-
     updatePlusMinus,
+
+    sqrt,
+    square,
+    cube,
+
     updateDisplayValues,
 
     clearOnce,

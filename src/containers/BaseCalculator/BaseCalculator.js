@@ -7,7 +7,7 @@ class BaseCalculator extends React.Component {
     state = {
         buttons: [],
         display: {
-            prevDisplay: '',
+            prevDisplay: [],
             currentDisplay: '0',
         },
         result: {

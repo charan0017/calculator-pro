@@ -3,10 +3,11 @@ export default function(buttonProps, display, result) {
         result.calculationDone = true;
         result.operationToPerform = null;
         if (!result.calculationBlocked) {
-            display.prevDisplay += `${result.prev}`;
-            display.currentDisplay = `${result.prev}`;
+            result.total = result.prev || result.total;
+            display.prevDisplay.push(`${result.total}`);
+            display.currentDisplay = `${result.total}`;
         } else {
-            display.prevDisplay += display.currentDisplay;
+            display.prevDisplay.push(display.currentDisplay);
         }
     }
     return { display, result };

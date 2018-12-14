@@ -4,7 +4,7 @@ export default function(buttonProps, display, result) {
     result.operationToPerform = null;
     result.calculationBlocked = false;
     result.calculationDone = false;
-    display.prevDisplay = '';
+    display.prevDisplay = [];
     display.currentDisplay = `${result.total}`;
     return { display, result };
 };
