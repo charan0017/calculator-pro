@@ -19,8 +19,8 @@ const performArithmeticOperation = (buttonProps, display, result) => {
         const lastElement = display.prevDisplay[display.prevDisplay.length - 1];
         if (!lastElement || !lastElement.includes(')')) {
             display.prevDisplay.push(result.total);
-            display.prevDisplay.push(buttonProps.text);
         }
+        display.prevDisplay.push(buttonProps.text);
         switch (result.operationToPerform || buttonProps.type) {
             case actionTypes.ADD: operations.calculateAdd(buttonProps, display, result); break;
             case actionTypes.SUBTRACT: operations.calculateSubtract(buttonProps, display, result); break;
@@ -43,14 +43,16 @@ const performArithmeticOperation = (buttonProps, display, result) => {
 };
 
 const performAlgebraOperations = (buttonProps, display, result) => {
-    undoCalculationDone(display, result);
     switch (buttonProps.type) {
         case actionTypes.SQRT: operations.sqrt(buttonProps, display, result); break;
         case actionTypes.SQUARE: operations.square(buttonProps, display, result); break;
         case actionTypes.CUBE: operations.cube(buttonProps, display, result); break;
+        case actionTypes.MULTIPLICATIVE_INVERSE: operations.multiplicativeInverse(buttonProps, display, result); break;
         default: break;
     }
-    display.currentDisplay = `${result.total}`;
+    if (!result.calculationBlocked) {
+        display.currentDisplay = `${result.total}`;
+    }
     return { display, result };
 };
 
@@ -58,7 +60,8 @@ export const calculate = (buttonProps, display, result) => {
     switch (buttonProps.type) {
         case actionTypes.SQRT:
         case actionTypes.SQUARE:
-        case actionTypes.CUBE: return performAlgebraOperations(buttonProps, display, result);
+        case actionTypes.CUBE:
+        case actionTypes.MULTIPLICATIVE_INVERSE: return performAlgebraOperations(buttonProps, display, result);
 
         case actionTypes.PLUS_MINUS: return operations.updatePlusMinus(buttonProps, display, result);
         case actionTypes.VALUE: return operations.updateDisplayValues(buttonProps, display, result);

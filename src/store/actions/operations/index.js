@@ -7,6 +7,7 @@ import updatePlusMinus from './update-plus-minus';
 import sqrt from './sqrt';
 import square from './square';
 import cube from './cube';
+import multiplicativeInverse from './multiplicative-inverse';
 
 import updateDisplayValues from './update-display-values';
 
@@ -26,6 +27,7 @@ export {
     sqrt,
     square,
     cube,
+    multiplicativeInverse,
 
     updateDisplayValues,
 

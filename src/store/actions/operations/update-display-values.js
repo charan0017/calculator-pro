@@ -1,7 +1,7 @@
 import { clearAll } from './index';
 
 export default function(buttonProps, display, result) {
-    if (result.calculationBlocked || result.calculationDone) {
+    if (result.calculationBlocked || result.calculationDone || !result.operationToPerform) {
         clearAll(buttonProps, display, result);
     }
     const number = Number(buttonProps.text);

@@ -34,7 +34,7 @@ const standardConfig = {
             {text: '+', type: actionTypes.ADD}
         ],
         [
-            {text: '1/X', classes: 'font-italic'},
+            {text: '1/X', type: actionTypes.MULTIPLICATIVE_INVERSE, classes: 'font-italic'},
             {text: '±', type: actionTypes.PLUS_MINUS},
             {text: '0', type: actionTypes.VALUE, classes: 'font-weight-bold'},
             {text: '.', type: actionTypes.DECIMAL, classes: 'font-weight-bold'},

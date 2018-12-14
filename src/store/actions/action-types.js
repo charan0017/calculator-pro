@@ -7,6 +7,7 @@ export const PLUS_MINUS = 'PLUS_MINUS';
 export const SQRT = 'SQRT';
 export const SQUARE = 'SQUARE';
 export const CUBE = 'CUBE';
+export const MULTIPLICATIVE_INVERSE = 'MULTIPLICATIVE_INVERSE';
 
 export const VALUE = 'VALUE';
 export const DECIMAL = 'DECIMAL';
