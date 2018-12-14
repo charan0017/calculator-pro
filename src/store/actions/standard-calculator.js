@@ -19,6 +19,7 @@ const performArithmeticOperation = (buttonProps, display, result) => {
         const lastElement = display.prevDisplay[display.prevDisplay.length - 1];
         if (!lastElement || !lastElement.includes(')')) {
             display.prevDisplay.push(result.total);
+            display.prevDisplay.push(buttonProps.text);
         }
         switch (result.operationToPerform || buttonProps.type) {
             case actionTypes.ADD: operations.calculateAdd(buttonProps, display, result); break;
@@ -30,9 +31,9 @@ const performArithmeticOperation = (buttonProps, display, result) => {
     } else {
         if (result.operationToPerform && result.operationToPerform !== buttonProps.type) {
             display.prevDisplay.pop();
+            display.prevDisplay.push(buttonProps.text);
         }
     }
-    display.prevDisplay.push(buttonProps.text);
     result.operationToPerform = buttonProps.type;
     switch (buttonProps.type) {
         case actionTypes.EQUALS: operations.equals(buttonProps, display, result); break;
@@ -42,6 +43,7 @@ const performArithmeticOperation = (buttonProps, display, result) => {
 };
 
 const performAlgebraOperations = (buttonProps, display, result) => {
+    undoCalculationDone(display, result);
     switch (buttonProps.type) {
         case actionTypes.SQRT: operations.sqrt(buttonProps, display, result); break;
         case actionTypes.SQUARE: operations.square(buttonProps, display, result); break;
@@ -52,7 +54,7 @@ const performAlgebraOperations = (buttonProps, display, result) => {
     return { display, result };
 };
 
-const chooseActions = (buttonProps, display, result) => {
+export const calculate = (buttonProps, display, result) => {
     switch (buttonProps.type) {
         case actionTypes.SQRT:
         case actionTypes.SQUARE:
@@ -69,9 +71,4 @@ const chooseActions = (buttonProps, display, result) => {
 
         default: return performArithmeticOperation(buttonProps, display, result);
     }
-};
-
-export const calculate = (buttonProps, display, result) => {
-    const state = chooseActions(buttonProps, display, result);
-    return state;
 };
