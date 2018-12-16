@@ -5,7 +5,7 @@ export default function(buttonProps, display, result) {
     if (typeof lastElement === 'string' && lastElement.includes(")")) {
         display.prevDisplay[display.prevDisplay.length - 1] = `${buttonProps.text}(${lastElement})`;
     } else {
-        display.prevDisplay.push(`${buttonProps.text}(${result.prev || result.total})`);
+        display.prevDisplay.push(`${buttonProps.text}(${result.total|| result.prev})`);
     }
     result.total = math.sqrt(result.total || result.prev);
 };

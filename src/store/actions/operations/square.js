@@ -5,7 +5,7 @@ export default function(buttonProps, display, result) {
     if (typeof lastElement === 'string' && lastElement.includes(')')) {
         display.prevDisplay[display.prevDisplay.length - 1] = `sqr(${lastElement})`;
     } else {
-        display.prevDisplay.push(`sqr(${result.prev || result.total})`);
+        display.prevDisplay.push(`sqr(${result.total|| result.prev})`);
     }
     result.total = math.square(result.total || result.prev);
 };

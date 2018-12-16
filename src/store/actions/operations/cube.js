@@ -5,7 +5,7 @@ export default function(buttonProps, display, result) {
     if (typeof lastElement === 'string' && lastElement.includes(')')) {
         display.prevDisplay[display.prevDisplay.length - 1] = `cube(${lastElement})`;
     } else {
-        display.prevDisplay.push(`cube(${result.prev || result.total})`);
+        display.prevDisplay.push(`cube(${result.total|| result.prev})`);
     }
     result.total = math.cube(result.total || result.prev);
 };
