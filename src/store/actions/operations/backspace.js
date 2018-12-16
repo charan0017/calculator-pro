@@ -5,6 +5,7 @@ export default function(buttonProps, display, result) {
         return clearAll(buttonProps, display, result);
     }
     if (result.decimalUsed && display.currentDisplay.includes('.')) {
+        result.decimalUsed = true;
         display.currentDisplay = display.currentDisplay.substr(0, display.currentDisplay.length - 1);
         result.total = parseFloat(display.currentDisplay);
     } else {

@@ -9,6 +9,7 @@ export default function(buttonProps, display, result) {
     }
     if(isNumber(buttonProps.text)) {
         if (result.decimalUsed || display.currentDisplay.includes('.')) {
+            result.decimalUsed = true;
             display.currentDisplay += buttonProps.text;
             result.total = parseFloat(display.currentDisplay);
         } else {
