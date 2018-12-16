@@ -28,6 +28,10 @@ const performArithmeticOperation = (buttonProps, display, result) => {
             case actionTypes.DIVIDE: operations.calculateDivide(buttonProps, display, result); break;
             default: break;
         }
+        if (!result.calculationBlocked) {
+            result.total = 0;
+            display.currentDisplay = `${result.prev}`;
+        }
     } else {
         if (result.operationToPerform && result.operationToPerform !== buttonProps.type) {
             display.prevDisplay.pop();
