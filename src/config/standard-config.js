@@ -1,6 +1,6 @@
 import * as actionTypes from '../store/actions/action-types';
 
-import { calculate } from '../store/actions/standard-calculator';
+import { calculate } from '../store/actions/base-calculator';
 
 const standardConfig = {
     calculate,
