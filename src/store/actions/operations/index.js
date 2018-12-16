@@ -11,6 +11,7 @@ import cube from './cube';
 import multiplicativeInverse from './multiplicative-inverse';
 
 import updateDisplayValues from './update-display-values';
+import decimal from './decimal';
 
 import clearOnce from './clear-once';
 import backspace from './backspace';
@@ -32,6 +33,7 @@ export {
     multiplicativeInverse,
 
     updateDisplayValues,
+    decimal,
 
     clearOnce,
     backspace,

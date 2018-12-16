@@ -5,6 +5,7 @@ export default function(buttonProps, display, result) {
         return clearAll(buttonProps, display, result);
     }
     result.total = 0;
+    result.decimalUsed = false;
     display.currentDisplay = `${result.total}`;
     return { display, result };
 };

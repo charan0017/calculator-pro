@@ -20,21 +20,21 @@ const standardConfig = {
             {text: 'x', type: actionTypes.MULTIPLY}
         ],
         [
-            {text: 'X', supR: '2', type: actionTypes.SQUARE, classes: 'font-italic'},
+            {text: 'X', supR: '2', displayText: 'sqr', type: actionTypes.SQUARE, classes: 'font-italic'},
             {text: '4', type: actionTypes.VALUE, classes: 'font-weight-bold'},
             {text: '5', type: actionTypes.VALUE, classes: 'font-weight-bold'},
             {text: '6', type: actionTypes.VALUE, classes: 'font-weight-bold'},
             {text: '-', type: actionTypes.SUBTRACT}
         ],
         [
-            {text: 'X', supR: '3', type: actionTypes.CUBE, classes: 'font-italic'},
+            {text: 'X', supR: '3', displayText: 'cube', type: actionTypes.CUBE, classes: 'font-italic'},
             {text: '1', type: actionTypes.VALUE, classes: 'font-weight-bold'},
             {text: '2', type: actionTypes.VALUE, classes: 'font-weight-bold'},
             {text: '3', type: actionTypes.VALUE, classes: 'font-weight-bold'},
             {text: '+', type: actionTypes.ADD}
         ],
         [
-            {text: '1/X', type: actionTypes.MULTIPLICATIVE_INVERSE, classes: 'font-italic'},
+            {text: '1/X', displayText: '1/', type: actionTypes.MULTIPLICATIVE_INVERSE, classes: 'font-italic'},
             {text: '±', type: actionTypes.PLUS_MINUS},
             {text: '0', type: actionTypes.VALUE, classes: 'font-weight-bold'},
             {text: '.', type: actionTypes.DECIMAL, classes: 'font-weight-bold'},

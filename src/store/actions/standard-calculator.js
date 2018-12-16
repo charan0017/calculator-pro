@@ -30,6 +30,7 @@ const performArithmeticOperation = (buttonProps, display, result) => {
         }
         if (!result.calculationBlocked) {
             result.total = 0;
+            result.decimalUsed = false;
             display.currentDisplay = `${result.prev}`;
         }
     } else {
@@ -48,6 +49,13 @@ const performArithmeticOperation = (buttonProps, display, result) => {
 
 const performAlgebraOperations = (buttonProps, display, result) => {
     undoCalculationDone(display, result);
+    let lastElement = display.prevDisplay[display.prevDisplay.length - 1];
+    const buttonText = buttonProps.displayText || buttonProps.text;
+    if (typeof lastElement === 'string' && lastElement.includes(')')) {
+        display.prevDisplay[display.prevDisplay.length - 1] = `${buttonText}(${lastElement})`;
+    } else {
+        display.prevDisplay.push(`${buttonText}(${result.prev || result.total})`);
+    }
     switch (buttonProps.type) {
         case actionTypes.PERCENTAGE: operations.percentage(buttonProps, display, result); break;
         case actionTypes.SQRT: operations.sqrt(buttonProps, display, result); break;

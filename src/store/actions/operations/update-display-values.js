@@ -8,9 +8,14 @@ export default function(buttonProps, display, result) {
         clearAll(buttonProps, display, result);
     }
     if(isNumber(buttonProps.text)) {
-        const number = Number(buttonProps.text);
-        result.total = math.multiply(result.total, 10) + (result.total < 0 ? -number : number);
-        display.currentDisplay = `${result.total}`;
+        if (result.decimalUsed) {
+            display.currentDisplay += buttonProps.text;
+            result.total = parseFloat(display.currentDisplay);
+        } else {
+            const number = Number(buttonProps.text);
+            result.total = math.multiply(result.total, 10) + (result.total < 0 ? -number : number);
+            display.currentDisplay = `${result.total}`;
+        }
     }
     return { display, result };
 };

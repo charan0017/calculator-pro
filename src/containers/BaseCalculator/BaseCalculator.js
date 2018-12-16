@@ -13,6 +13,7 @@ class BaseCalculator extends React.Component {
         result: {
             prev: 0,
             total: 0,
+            decimalUsed: false,
             operationToPerform: null,
             calculationBlocked: false,
             calculationDone: false,
