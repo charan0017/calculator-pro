@@ -43,7 +43,11 @@ const performArithmeticOperation = (buttonProps, display, result) => {
 };
 
 const performAlgebraOperations = (buttonProps, display, result) => {
+    if (result.calculationBlocked || result.calculationDone) {
+        display.prevDisplay = [];
+    }
     switch (buttonProps.type) {
+        case actionTypes.PERCENTAGE: operations.percentage(buttonProps, display, result); break;
         case actionTypes.SQRT: operations.sqrt(buttonProps, display, result); break;
         case actionTypes.SQUARE: operations.square(buttonProps, display, result); break;
         case actionTypes.CUBE: operations.cube(buttonProps, display, result); break;
@@ -58,6 +62,7 @@ const performAlgebraOperations = (buttonProps, display, result) => {
 
 export const calculate = (buttonProps, display, result) => {
     switch (buttonProps.type) {
+        case actionTypes.PERCENTAGE:
         case actionTypes.SQRT:
         case actionTypes.SQUARE:
         case actionTypes.CUBE:

@@ -4,6 +4,7 @@ export const MULTIPLY = 'MULTIPLY';
 export const DIVIDE = 'DIVIDE';
 export const PLUS_MINUS = 'PLUS_MINUS';
 
+export const PERCENTAGE = 'PERCENTAGE';
 export const SQRT = 'SQRT';
 export const SQUARE = 'SQUARE';
 export const CUBE = 'CUBE';

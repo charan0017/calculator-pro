@@ -4,6 +4,7 @@ import calculateMultiply from './calculate-multiply';
 import calculateDivide from './calculate-divide';
 import updatePlusMinus from './update-plus-minus';
 
+import percentage from './percentage';
 import sqrt from './sqrt';
 import square from './square';
 import cube from './cube';
@@ -24,6 +25,7 @@ export {
     calculateDivide,
     updatePlusMinus,
 
+    percentage,
     sqrt,
     square,
     cube,

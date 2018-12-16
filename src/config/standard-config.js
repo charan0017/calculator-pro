@@ -6,7 +6,7 @@ const standardConfig = {
     calculate,
     buttons: [
         [
-            {text: '%', classes: 'font-italic'},
+            {text: '%', type: actionTypes.PERCENTAGE, classes: 'font-italic'},
             {text: 'CE', type: actionTypes.CLEAR_ONCE},
             {text: 'C', type: actionTypes.CLEAR_ALL},
             {text: '⌫', type: actionTypes.BACKSPACE},
