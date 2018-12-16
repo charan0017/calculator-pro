@@ -3,10 +3,10 @@ import * as operations from './operations';
 
 const undoCalculationDone = (display, result) => {
     if (result.calculationDone) {
-        result.total = result.prev;
+        result.calculationDone = false;
+        result.total = result.total || result.prev;
         result.prev = 0;
         display.prevDisplay = [];
-        result.calculationDone = false;
     }
 };
 
@@ -43,9 +43,7 @@ const performArithmeticOperation = (buttonProps, display, result) => {
 };
 
 const performAlgebraOperations = (buttonProps, display, result) => {
-    if (result.calculationBlocked || result.calculationDone) {
-        display.prevDisplay = [];
-    }
+    undoCalculationDone(display, result);
     switch (buttonProps.type) {
         case actionTypes.PERCENTAGE: operations.percentage(buttonProps, display, result); break;
         case actionTypes.SQRT: operations.sqrt(buttonProps, display, result); break;

@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
+import { withRouter, Switch, Route, Redirect } from 'react-router-dom';
 
-import { BaseCalculator } from './containers';
 import { standardConfig } from './config/index';
+import { asyncComponent } from './hoc';
+
+const asyncBaseCalculator = asyncComponent(() => import('./containers/BaseCalculator/BaseCalculator'), { config: standardConfig });
 
 class App extends Component {
   render() {
     return (
-      <BaseCalculator config={standardConfig} />
+      <div>
+        <Switch>
+            <Route path="/" exact component={asyncBaseCalculator} />
+            <Redirect to="/" />
+        </Switch>
+      </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
