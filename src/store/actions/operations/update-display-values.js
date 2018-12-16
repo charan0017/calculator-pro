@@ -8,7 +8,7 @@ export default function(buttonProps, display, result) {
         clearAll(buttonProps, display, result);
     }
     if(isNumber(buttonProps.text)) {
-        if (result.decimalUsed && display.currentDisplay.includes('.')) {
+        if (result.decimalUsed || display.currentDisplay.includes('.')) {
             display.currentDisplay += buttonProps.text;
             result.total = parseFloat(display.currentDisplay);
         } else {
