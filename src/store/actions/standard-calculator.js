@@ -15,7 +15,7 @@ const performArithmeticOperation = (buttonProps, display, result) => {
         return { display, result };
     }
     undoCalculationDone(display, result);
-    if (result.total || result.operationToPerform === actionTypes.DIVIDE) {
+    if (result.total || [actionTypes.DIVIDE, actionTypes.MULTIPLY].includes(result.operationToPerform)) {
         const lastElement = display.prevDisplay[display.prevDisplay.length - 1];
         if (!lastElement || !lastElement.includes(')')) {
             display.prevDisplay.push(result.total);
