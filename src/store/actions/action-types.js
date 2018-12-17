@@ -10,6 +10,8 @@ export const SQUARE = 'SQUARE';
 export const CUBE = 'CUBE';
 export const MULTIPLICATIVE_INVERSE = 'MULTIPLICATIVE_INVERSE';
 
+export const TOGGLE = 'TOGGLE';
+
 export const VALUE = 'VALUE';
 export const DECIMAL = 'DECIMAL';
 

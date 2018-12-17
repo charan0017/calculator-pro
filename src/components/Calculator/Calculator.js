@@ -13,7 +13,7 @@ const Calculator = (props) => {
                 <div id="previous__display" className={`text-secondary prev__display ${props.prevDisplay ? '' : 'invisible'}`}>{Array.isArray(props.prevDisplay) ? props.prevDisplay.join(' ') : 'previous'}</div>
                 <div id="current__display" className="text-dark font-weight-bold current__display">{props.currentDisplay ? props.currentDisplay : ''}</div>
             </div>
-            <ButtonsGrid buttons={props.buttons} />
+            <ButtonsGrid buttons={props.buttons} toggled={props.toggled} />
         </div>
     );
 };

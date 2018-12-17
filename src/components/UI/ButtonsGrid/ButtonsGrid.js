@@ -12,6 +12,7 @@ const ButtonsGrid = (props) => {
                     ...button.props,
                 }))
                 : []}
+            toggled={props.toggled}
             key={i}/>);
     }
     const buttonsGridStyle = typeof props.style === 'object' ? props.style : {};

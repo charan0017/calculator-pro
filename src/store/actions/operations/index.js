@@ -10,6 +10,8 @@ import square from './square';
 import cube from './cube';
 import multiplicativeInverse from './multiplicative-inverse';
 
+import toggle from './toggle';
+
 import updateDisplayValues from './update-display-values';
 import decimal from './decimal';
 
@@ -31,6 +33,8 @@ export {
     square,
     cube,
     multiplicativeInverse,
+
+    toggle,
 
     updateDisplayValues,
     decimal,

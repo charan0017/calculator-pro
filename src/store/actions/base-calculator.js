@@ -82,6 +82,8 @@ export const calculate = (buttonProps, display, result) => {
         case actionTypes.VALUE: return operations.updateDisplayValues(buttonProps, display, result);
         case actionTypes.DECIMAL: return operations.decimal(buttonProps, display, result);
 
+        case actionTypes.TOGGLE: return operations.toggle(buttonProps, display, result);
+
         case actionTypes.BACKSPACE: return operations.backspace(buttonProps, display, result);
         case actionTypes.CLEAR_ONCE: return operations.clearOnce(buttonProps, display, result);
         case actionTypes.CLEAR_ALL: return operations.clearAll(buttonProps, display, result);

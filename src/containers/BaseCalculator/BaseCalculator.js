@@ -11,6 +11,7 @@ class BaseCalculator extends React.Component {
             title: 'calculator',
             prevDisplay: [],
             currentDisplay: '0',
+            toggled: false,
         },
         result: {
             prev: 0,

@@ -18,7 +18,7 @@ const standardCalculatorConfig = {
             {text: 'Mod', alternate: {text: 'deg'}}
         ],
         [
-            {text: '', classes: 'far fa-arrow-up'},
+            {text: '', classes: 'far fa-arrow-up', type: actionTypes.TOGGLE, buttonDivClasses: 'border-warning'},
             {text: 'CE', type: actionTypes.CLEAR_ONCE},
             {text: 'C', type: actionTypes.CLEAR_ALL},
             {text: '⌫', type: actionTypes.BACKSPACE},

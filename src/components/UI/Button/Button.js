@@ -3,23 +3,28 @@ import React from 'react';
 import './Button.css';
 
 const Button = (props) => {
-    const buttonClasses = `${(props.classes ? props.classes : '') + ' '}
-        ${(props.btnColor ? props.btnColor : '') + ' '}
-        btn btn-light button__full`;
-    const btnStyle = typeof props.btnStyle === 'object' ? props.btnStyle : {};
+    let buttonProps = {...props};
+    if (props.toggled && typeof props.alternate === 'object') {
+        buttonProps = {...props.alternate};
+    }
+    const buttonClasses = `${(buttonProps.classes ? buttonProps.classes : '') + ' '}` +
+        `${(buttonProps.btnColor ? buttonProps.btnColor : '') + ' '}` +
+        `btn btn-light button__full`;
+    const btnStyle = typeof buttonProps.btnStyle === 'object' ? buttonProps.btnStyle : {};
+    const buttonDivClasses = `${props.toggled && props.buttonDivClasses ? `${props.buttonDivClasses} toggle` : ''}`;
     return (
-        <div>
+        <div className={buttonDivClasses}>
             <button
                 type={"button"}
-                onClick={props.clicked}
+                onClick={buttonProps.clicked}
                 className={buttonClasses}
                 style={btnStyle}
-                disabled={props.disabled}>
-                {props.supL ? <sup>{props.supL}</sup> : ''}
-                {props.subL ? <sub>{props.subL}</sub> : ''}
-                {props.text}
-                {props.supR ? <sup>{props.supR}</sup> : ''}
-                {props.subR ? <sub>{props.subR}</sub> : ''}</button>
+                disabled={buttonProps.disabled}>
+                {buttonProps.supL ? <sup>{buttonProps.supL}</sup> : ''}
+                {buttonProps.subL ? <sub>{buttonProps.subL}</sub> : ''}
+                {buttonProps.text}
+                {buttonProps.supR ? <sup>{buttonProps.supR}</sup> : ''}
+                {buttonProps.subR ? <sub>{buttonProps.subR}</sub> : ''}</button>
         </div>
     );
 };
