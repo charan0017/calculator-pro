@@ -66,6 +66,9 @@ class BaseCalculator extends React.Component {
                 .map((button) => {
                     if (![actionTypes.VALUE, actionTypes.CLEAR_ALL, actionTypes.CLEAR_ONCE, actionTypes.BACKSPACE].includes(button.props.type)) {
                         button.props.disabled = !!calculation.result.calculationBlocked;
+                        if (button.props.alternate) {
+                            button.props.alternate.disabled = !!calculation.result.calculationBlocked;
+                        }
                     }
                     return button;
                 }));
