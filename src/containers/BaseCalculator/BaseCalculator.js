@@ -27,13 +27,23 @@ class BaseCalculator extends React.Component {
         if (this.props.config && Array.isArray(this.props.config.buttons)) {
             const buttons = this.props.config.buttons
                 .map((buttonsRow) => buttonsRow
-                    .map((buttonProps) => ({
-                        props: {
-                            ...buttonProps,
-                            disabled: false,
-                            clicked: () => this.buttonClickHandler(buttonProps, calculate)
+                    .map((buttonProps) => {
+                        const button = {
+                            props: {
+                                ...buttonProps,
+                                disabled: false,
+                                clicked: () => this.buttonClickHandler(buttonProps, calculate)
+                            }
+                        };
+                        if (buttonProps.alternate) {
+                            button.props.alternate = {
+                                ...buttonProps.alternate,
+                                disabled: false,
+                                clicked: () => this.buttonClickHandler(buttonProps.alternate, calculate)
+                            };
                         }
-                    })));
+                        return button;
+                    }));
             const title = this.props.config.title || this.state.display.title;
             this.setState({ buttons, display: {...this.state.display, title } });
         }
