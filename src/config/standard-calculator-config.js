@@ -2,7 +2,7 @@ import * as actionTypes from '../store/actions/action-types';
 
 import { calculate } from '../store/actions/base-calculator';
 
-const standardConfig = {
+const standardCalculatorConfig = {
     calculate,
     buttons: [
         [
@@ -43,4 +43,4 @@ const standardConfig = {
     ],
 };
 
-export default standardConfig;
+export default standardCalculatorConfig;

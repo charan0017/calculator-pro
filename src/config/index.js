@@ -1,3 +1,4 @@
-import standardConfig from './standard-config';
+import standardCalculatorConfig from './standard-calculator-config';
+import scientificCalculatorConfig from './scientific-calculator-config';
 
-export { standardConfig };
+export { standardCalculatorConfig, scientificCalculatorConfig };

@@ -46,7 +46,6 @@ class BaseCalculator extends React.Component {
     };
 
     buttonClickHandler = (buttonProps, calculate) => {
-        this.scrollCalculatorDisplayFor(['previous__display']);
         this.setState((prevState) => {
             const calculation = calculate(buttonProps, prevState.display, prevState.result);
             let buttons = prevState.buttons.map(buttonRow => buttonRow
@@ -62,6 +61,7 @@ class BaseCalculator extends React.Component {
                 ...calculation,
             };
         });
+        this.scrollCalculatorDisplayFor(['previous__display']);
     };
 
     render() {
