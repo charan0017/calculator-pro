@@ -6,18 +6,18 @@ const standardCalculatorConfig = {
     calculate,
     buttons: [
         [
-            {text: 'X', supR: '2', displayText: 'sqr', type: actionTypes.SQUARE, classes: 'font-italic'},
-            {text: 'X', supR: 'y', classes: 'font-italic'},
-            {text: 'sin'},
-            {text: 'cos'},
-            {text: 'tan'}
+            {text: 'X', supR: '2', displayText: 'sqr', type: actionTypes.SQUARE, classes: 'font-italic', alternate: {text: 'X', supR: '3', displayText: 'cube', type: actionTypes.CUBE, classes: 'font-italic'}},
+            {text: 'X', supR: 'y', classes: 'font-italic', alternate: {supL: 'y', text: '√x', classes: 'font-italic'}},
+            {text: 'sin', alternate: {text: 'sin', supR: '-1'}},
+            {text: 'cos', alternate: {text: 'cos', supR: '-1'}},
+            {text: 'tan', alternate: {text: 'tan', supR: '-1'}}
         ],
         [
-            {text: '√', type: actionTypes.SQRT},
-            {text: '10', supR: 'x'},
-            {text: 'log'},
-            {text: 'Exp'},
-            {text: 'Mod'}
+            {text: '√', type: actionTypes.SQRT, alternate: {text: '1/X', displayText: '1/', type: actionTypes.MULTIPLICATIVE_INVERSE, classes: 'font-italic'}},
+            {text: '10', supR: 'x', alternate: {text: 'e', supR: 'x'}},
+            {text: 'log', alternate: {text: 'ln'}},
+            {text: 'Exp', alternate: {text: 'dms'}},
+            {text: 'Mod', alternate: {text: 'deg'}}
         ],
         [
             {text: '', classes: 'far fa-arrow-up'},
