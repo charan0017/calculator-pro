@@ -1,0 +1,14 @@
+.overlay {
+    background-color: #ccc;
+    opacity: 0.8;
+    z-index: 1000;
+}
+
+hr {
+    margin-top: 0.2vh;
+    margin-bottom: 0.2vh;
+    border: 0;
+    border-top: 0.5vh solid rgba(0, 0, 0, 0.5);
+    width: 60vw;
+    left: 0;
+}

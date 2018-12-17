@@ -3,25 +3,28 @@
     background-color: #e3e3e3;
     height: 100vh;
     display: grid;
-    grid-template-rows: 22% 78%;
-}
-
-.calculator__display {
-    display: grid;
-    grid-template-rows: 45% 55%;
+    grid-template-rows: 4% 22% 74%;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
 }
 
+.calculator__display {
+    display: grid;
+    grid-template-rows: 45% 55%;
+}
+
 .prev__display {
     font-size: 3.5vh;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
 }
 
 .current__display {
     font-size: 5.8vh;
+}
+
+.prev__display, .current__display {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
 }

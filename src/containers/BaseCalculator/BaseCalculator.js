@@ -7,6 +7,7 @@ class BaseCalculator extends React.Component {
     state = {
         buttons: [],
         display: {
+            title: 'calculator',
             prevDisplay: [],
             currentDisplay: '0',
         },
@@ -31,7 +32,8 @@ class BaseCalculator extends React.Component {
                             clicked: () => this.buttonClickHandler(buttonProps, this.props.config.calculate)
                         }
                     })));
-            this.setState({ buttons });
+            const title = this.props.config.title || this.state.display.title;
+            this.setState({ buttons, display: {...this.state.display, title } });
         }
     }
 
@@ -61,7 +63,7 @@ class BaseCalculator extends React.Component {
                 ...calculation,
             };
         });
-        this.scrollCalculatorDisplayFor(['previous__display']);
+        this.scrollCalculatorDisplayFor(['previous__display', 'current__display']);
     };
 
     render() {

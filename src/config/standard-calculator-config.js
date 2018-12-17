@@ -3,6 +3,7 @@ import * as actionTypes from '../store/actions/action-types';
 import { calculate } from '../store/actions/base-calculator';
 
 const standardCalculatorConfig = {
+    title: 'standard',
     calculate,
     buttons: [
         [
