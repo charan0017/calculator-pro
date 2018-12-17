@@ -1,10 +1,7 @@
 import * as actionTypes from '../store/actions/action-types';
 
-import { calculate } from '../store/actions/base-calculator';
-
 const standardCalculatorConfig = {
     title: 'scientific',
-    calculate,
     buttons: [
         [
             {text: 'X', supR: '2', displayText: 'sqr', type: actionTypes.SQUARE, classes: 'font-italic', alternate: {text: 'X', supR: '3', displayText: 'cube', type: actionTypes.CUBE, classes: 'font-italic'}},

@@ -28,7 +28,7 @@ const performArithmeticOperation = (buttonProps, display, result) => {
             case actionTypes.DIVIDE: operations.calculateDivide(buttonProps, display, result); break;
             default: break;
         }
-        if (!result.calculationBlocked) {
+        if (!result.calculationBlocked && buttonProps.type !== actionTypes.EQUALS) {
             result.total = 0;
             result.decimalUsed = false;
             display.currentDisplay = `${result.prev}`;

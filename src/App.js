@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import { standardCalculatorConfig, scientificCalculatorConfig } from './config/index';
-import { asyncComponent } from './hoc';
+import { asyncComponent } from './hoc/index';
 
 const asyncBaseCalculator = asyncComponent(() => import('./containers/BaseCalculator/BaseCalculator'), { config: standardCalculatorConfig });
 const asyncScientificCalculator = asyncComponent(() => import('./containers/BaseCalculator/BaseCalculator'), { config: scientificCalculatorConfig });

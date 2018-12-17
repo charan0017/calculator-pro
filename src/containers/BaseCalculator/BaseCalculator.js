@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Calculator } from '../../components/';
 import * as actionTypes from '../../store/actions/action-types';
+import { calculate } from '../../store/actions/base-calculator';
 
 class BaseCalculator extends React.Component {
     state = {
@@ -22,14 +23,14 @@ class BaseCalculator extends React.Component {
     };
 
     componentDidMount() {
-        if (this.props.config && Array.isArray(this.props.config.buttons) && this.props.config.calculate) {
+        if (this.props.config && Array.isArray(this.props.config.buttons)) {
             const buttons = this.props.config.buttons
                 .map((buttonsRow) => buttonsRow
                     .map((buttonProps) => ({
                         props: {
                             ...buttonProps,
                             disabled: false,
-                            clicked: () => this.buttonClickHandler(buttonProps, this.props.config.calculate)
+                            clicked: () => this.buttonClickHandler(buttonProps, calculate)
                         }
                     })));
             const title = this.props.config.title || this.state.display.title;
