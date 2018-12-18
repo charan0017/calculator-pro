@@ -1,3 +1,5 @@
+import math from 'mathjs';
+
 import { clearAll } from './index';
 
 export default function(buttonProps, display, result) {
@@ -6,6 +8,6 @@ export default function(buttonProps, display, result) {
     }
     result.total = 0;
     result.decimalUsed = false;
-    display.currentDisplay = `${result.total}`;
+    display.currentDisplay = math.format(result.total);
     return { display, result };
 };

@@ -10,6 +10,11 @@ import square from './square';
 import cube from './cube';
 import multiplicativeInverse from './multiplicative-inverse';
 
+import pi from './pi';
+import factorial from './factorial';
+import trigonometry from './trigonometry';
+import trigonometry_inverse from './trigonometry_inverse';
+
 import toggle from './toggle';
 
 import updateDisplayValues from './update-display-values';
@@ -33,6 +38,11 @@ export {
     square,
     cube,
     multiplicativeInverse,
+
+    pi,
+    factorial,
+    trigonometry,
+    trigonometry_inverse,
 
     toggle,
 

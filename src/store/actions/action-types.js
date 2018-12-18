@@ -10,6 +10,15 @@ export const SQUARE = 'SQUARE';
 export const CUBE = 'CUBE';
 export const MULTIPLICATIVE_INVERSE = 'MULTIPLICATIVE_INVERSE';
 
+export const PI = 'PI';
+export const FACTORIAL = 'FACTORIAL';
+export const SIN = 'SIN';
+export const COS = 'COS';
+export const TAN = 'TAN';
+export const A_SIN = 'A_SIN';
+export const A_COS = 'A_COS';
+export const A_TAN = 'A_TAN';
+
 export const TOGGLE = 'TOGGLE';
 
 export const VALUE = 'VALUE';

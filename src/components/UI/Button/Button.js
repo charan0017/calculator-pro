@@ -11,7 +11,7 @@ const Button = (props) => {
         `${(buttonProps.btnColor ? buttonProps.btnColor : '') + ' '}` +
         `btn btn-light button__full`;
     const btnStyle = typeof buttonProps.btnStyle === 'object' ? buttonProps.btnStyle : {};
-    const buttonDivClasses = `${props.toggled && props.buttonDivClasses ? `${props.buttonDivClasses} toggle` : ''}`;
+    const buttonDivClasses = `${props.toggled && props.buttonDivClasses ? `${props.buttonDivClasses} toggle` : ''} text-center`;
     return (
         <div className={buttonDivClasses}>
             <button

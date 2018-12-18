@@ -1,3 +1,5 @@
+import math from 'mathjs';
+
 import * as actionTypes from './action-types';
 import * as operations from './operations';
 
@@ -31,7 +33,7 @@ const performArithmeticOperation = (buttonProps, display, result) => {
         if (!result.calculationBlocked && buttonProps.type !== actionTypes.EQUALS) {
             result.total = 0;
             result.decimalUsed = false;
-            display.currentDisplay = `${result.prev}`;
+            display.currentDisplay = math.format(result.prev);
         }
     } else {
         if (result.operationToPerform && result.operationToPerform !== buttonProps.type) {
@@ -49,12 +51,14 @@ const performArithmeticOperation = (buttonProps, display, result) => {
 
 const performAlgebraOperations = (buttonProps, display, result) => {
     undoCalculationDone(display, result);
-    let lastElement = display.prevDisplay[display.prevDisplay.length - 1];
-    const buttonText = buttonProps.displayText || buttonProps.text;
-    if (typeof lastElement === 'string' && lastElement.includes(')')) {
-        display.prevDisplay[display.prevDisplay.length - 1] = `${buttonText}(${lastElement})`;
-    } else {
-        display.prevDisplay.push(`${buttonText}(${result.prev || result.total})`);
+    if (![actionTypes.PI, actionTypes.FACTORIAL].includes(buttonProps.type)) {
+        let lastElement = display.prevDisplay[display.prevDisplay.length - 1];
+        const buttonText = buttonProps.displayText || buttonProps.text;
+        if (typeof lastElement === 'string' && lastElement.includes(')')) {
+            display.prevDisplay[display.prevDisplay.length - 1] = `${buttonText}(${lastElement})`;
+        } else {
+            display.prevDisplay.push(`${buttonText}(${result.prev || result.total})`);
+        }
     }
     switch (buttonProps.type) {
         case actionTypes.PERCENTAGE: operations.percentage(buttonProps, display, result); break;
@@ -62,21 +66,29 @@ const performAlgebraOperations = (buttonProps, display, result) => {
         case actionTypes.SQUARE: operations.square(buttonProps, display, result); break;
         case actionTypes.CUBE: operations.cube(buttonProps, display, result); break;
         case actionTypes.MULTIPLICATIVE_INVERSE: operations.multiplicativeInverse(buttonProps, display, result); break;
+        case actionTypes.PI: operations.pi(buttonProps, display, result); break;
+        case actionTypes.FACTORIAL: operations.factorial(buttonProps, display, result); break;
+        case actionTypes.SIN:
+        case actionTypes.COS:
+        case actionTypes.TAN: operations.trigonometry(buttonProps, display, result); break;
+        case actionTypes.A_SIN:
+        case actionTypes.A_COS:
+        case actionTypes.A_TAN: operations.trigonometry_inverse(buttonProps, display, result); break;
         default: break;
     }
     if (!result.calculationBlocked) {
-        display.currentDisplay = `${result.total}`;
+        display.currentDisplay = math.format(result.total);
     }
     return { display, result };
 };
 
 export const calculate = (buttonProps, display, result) => {
     switch (buttonProps.type) {
-        case actionTypes.PERCENTAGE:
-        case actionTypes.SQRT:
-        case actionTypes.SQUARE:
-        case actionTypes.CUBE:
-        case actionTypes.MULTIPLICATIVE_INVERSE: return performAlgebraOperations(buttonProps, display, result);
+        case actionTypes.ADD:
+        case actionTypes.SUBTRACT:
+        case actionTypes.MULTIPLY:
+        case actionTypes.DIVIDE:
+        case actionTypes.EQUALS: return performArithmeticOperation(buttonProps, display, result);
 
         case actionTypes.PLUS_MINUS: return operations.updatePlusMinus(buttonProps, display, result);
         case actionTypes.VALUE: return operations.updateDisplayValues(buttonProps, display, result);
@@ -88,6 +100,6 @@ export const calculate = (buttonProps, display, result) => {
         case actionTypes.CLEAR_ONCE: return operations.clearOnce(buttonProps, display, result);
         case actionTypes.CLEAR_ALL: return operations.clearAll(buttonProps, display, result);
 
-        default: return performArithmeticOperation(buttonProps, display, result);
+        default: return performAlgebraOperations(buttonProps, display, result);
     }
 };
