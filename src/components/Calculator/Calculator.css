@@ -9,6 +9,12 @@
     -webkit-user-select: none;
 }
 
+.navigation {
+    font-family: 'Aleo', serif;
+    font-weight: bold;
+    font-size: 5vh;
+}
+
 .calculator__display {
     display: grid;
     grid-template-rows: 45% 55%;

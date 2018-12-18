@@ -1,6 +1,6 @@
 .overlay {
     background-color: #ccc;
-    opacity: 0.8;
+    opacity: 0.95;
     z-index: 1000;
 }
 
@@ -9,6 +9,16 @@ hr {
     margin-bottom: 0.2vh;
     border: 0;
     border-top: 0.5vh solid rgba(0, 0, 0, 0.5);
-    width: 60vw;
+    width: 50vw;
     left: 0;
+}
+
+p {
+    font-size: 4.5vh;
+    font-weight: bold;
+}
+
+li {
+    font-size: 3.5vh;
+    font-weight: lighter;
 }
