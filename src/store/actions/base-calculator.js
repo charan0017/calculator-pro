@@ -68,6 +68,8 @@ const performAlgebraOperations = (buttonProps, display, result) => {
         case actionTypes.MULTIPLICATIVE_INVERSE: operations.multiplicativeInverse(buttonProps, display, result); break;
         case actionTypes.PI: operations.pi(buttonProps, display, result); break;
         case actionTypes.FACTORIAL: operations.factorial(buttonProps, display, result); break;
+        case actionTypes.LOG_10: operations.log10(buttonProps, display, result); break;
+        case actionTypes.LOG: operations.log(buttonProps, display, result); break;
         case actionTypes.SIN:
         case actionTypes.COS:
         case actionTypes.TAN: operations.trigonometry(buttonProps, display, result); break;

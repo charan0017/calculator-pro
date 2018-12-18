@@ -13,7 +13,7 @@ const standardCalculatorConfig = {
         [
             {text: '√', type: actionTypes.SQRT, alternate: {text: '1/X', displayText: '1/', type: actionTypes.MULTIPLICATIVE_INVERSE, classes: 'font-italic'}},
             {text: '10', supR: 'x', alternate: {text: 'e', supR: 'x'}},
-            {text: 'log', alternate: {text: 'ln'}},
+            {text: 'log', type: actionTypes.LOG_10, alternate: {text: 'ln', type: actionTypes.LOG}},
             {text: 'Exp', alternate: {text: 'dms'}},
             {text: 'Mod', alternate: {text: 'deg'}}
         ],

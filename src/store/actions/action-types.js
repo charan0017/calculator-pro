@@ -12,6 +12,8 @@ export const MULTIPLICATIVE_INVERSE = 'MULTIPLICATIVE_INVERSE';
 
 export const PI = 'PI';
 export const FACTORIAL = 'FACTORIAL';
+export const LOG_10 = 'LOG_10';
+export const LOG = 'LOG';
 export const SIN = 'SIN';
 export const COS = 'COS';
 export const TAN = 'TAN';
