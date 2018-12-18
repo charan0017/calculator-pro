@@ -14,6 +14,8 @@ import pi from './pi';
 import factorial from './factorial';
 import log10 from './log10';
 import log from './log';
+import tenPower from './ten-power';
+import exponent from './exponent';
 import trigonometry from './trigonometry';
 import trigonometry_inverse from './trigonometry_inverse';
 
@@ -47,6 +49,8 @@ export {
     log,
     trigonometry,
     trigonometry_inverse,
+    tenPower,
+    exponent,
 
     toggle,
 

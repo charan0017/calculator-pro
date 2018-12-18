@@ -46,6 +46,9 @@ const performArithmeticOperation = (buttonProps, display, result) => {
         case actionTypes.EQUALS: operations.equals(buttonProps, display, result); break;
         default: break;
     }
+    if (!isFinite(result.total)) {
+        result.calculationBlocked = true;
+    }
     return { display, result };
 };
 
@@ -70,6 +73,8 @@ const performAlgebraOperations = (buttonProps, display, result) => {
         case actionTypes.FACTORIAL: operations.factorial(buttonProps, display, result); break;
         case actionTypes.LOG_10: operations.log10(buttonProps, display, result); break;
         case actionTypes.LOG: operations.log(buttonProps, display, result); break;
+        case actionTypes.TEN_POWER: operations.tenPower(buttonProps, display, result); break;
+        case actionTypes.EXPONENT: operations.exponent(buttonProps, display, result); break;
         case actionTypes.SIN:
         case actionTypes.COS:
         case actionTypes.TAN: operations.trigonometry(buttonProps, display, result); break;
@@ -80,6 +85,9 @@ const performAlgebraOperations = (buttonProps, display, result) => {
     }
     if (!result.calculationBlocked) {
         display.currentDisplay = math.format(result.total);
+    }
+    if (!isFinite(result.total)) {
+        result.calculationBlocked = true;
     }
     return { display, result };
 };
